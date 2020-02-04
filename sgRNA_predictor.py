@@ -23,7 +23,7 @@ args = parser.parse_args()
 
 
 def find_off_targets(genome, direc, outdir):
-    cmd_blastn = '~/Downloads/ncbi-blast-2.8.1+/bin/blastn -query %s/%s/sgRNAs.fasta -task blastn-short -subject %s ' \
+    cmd_blastn = 'blastn -query %s/%s/sgRNAs.fasta -task blastn-short -subject %s ' \
                  '-outfmt 5 -qcov_hsp_perc 100 -out %s/%s/blasted_sgrnas.xml' % (outdir, direc, genome, outdir, direc)
     os.system(cmd_blastn)
     if os.stat("%s/%s/blasted_sgrnas.xml" % (outdir, direc)).st_size != 0:
